@@ -1,9 +1,11 @@
 require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
-const {mongoose} = require('./db/mongoose');
 const {Episode} = require('./models/episode');
+mongoose.Promise = global.Promise;
+mongoose.connect(`mongodb://${process.env.USERNAME}:${process.env.PASSWORD}${process.env.DB}`, { useNewUrlParser: true });
 
 const app = express();
 //middleware to parse JSON
