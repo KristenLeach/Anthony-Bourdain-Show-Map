@@ -53,3 +53,5 @@ const Episode = mongoose.model('Episode', {
     }
 
 })
+
+module.exports = {Episode}
