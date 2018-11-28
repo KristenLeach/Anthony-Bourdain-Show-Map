@@ -1,6 +1,6 @@
 require('dotenv').config()
 const express = require('express');
-const bodyParser = require('body-parser');
+const cors = require('cors');
 const mongoose = require('mongoose');
 
 const {Episode} = require('./models/episode');
@@ -9,7 +9,7 @@ mongoose.connect(`mongodb://${process.env.USERNAME}:${process.env.PASSWORD}${pro
 
 const app = express();
 //middleware to parse JSON
-app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
     Episode.find().then((episodes) => {
